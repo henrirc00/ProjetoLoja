@@ -7,7 +7,7 @@ class Usuario{
     public $foto;
 
 
-    public function __constructor($){
+    public function __construct($db){
         $this->conexao = $db;
     }
 
@@ -24,7 +24,7 @@ class Usuario{
          Foi criada a variavel stmt(Statment -> Sentença) para guardar a preparacao da consulta 
          select que será executada posteriomente.
          */
-        $stmt = $this ->conexao->prepare($query);
+        $stmt = $this->conexao->prepare($query);
         #execução da consulta e guarda de dados na variavel stmt 
 
         $stmt->execute();
@@ -92,7 +92,7 @@ class Usuario{
             return true;
         }
         else{
-            retunr false;
+            return false;
         }
 
     }
@@ -101,7 +101,7 @@ class Usuario{
 
         $query = "update usuario set foto=:f where id=:i";
 
-        $stmt= $this->conexao->prepare($query);]
+        $stmt= $this->conexao->prepare($query);
 
         $stmt->bindParam(":f",$this->foto);
         $stmt->bindParam(":i",$this->id);
