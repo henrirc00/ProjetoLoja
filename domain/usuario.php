@@ -65,7 +65,7 @@ class Usuario{
     Função para cadastrar os usuarios no banco de dados 
     */
     public function cadastro(){
-        $query = "insert into usuario set nomeusuairo=:n, senha=:s, foto=:f";
+        $query = "insert into usuario set nomeusuario=:n, senha=:s, foto=:f";
 
         $stmt = $this->conexao->prepare($query);
 
