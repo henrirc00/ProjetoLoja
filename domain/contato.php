@@ -78,7 +78,7 @@ class Contato{
         $stmt= $this->conexao->prepare($query);
 
         $stmt->bindParam(":t",$this->telefone);
-        $stmt->bindParam(":e",$this->email;
+        $stmt->bindParam(":e",$this->email);
 
         if($stmt->execute()){
             return true;
