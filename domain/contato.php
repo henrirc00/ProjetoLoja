@@ -55,8 +55,7 @@ class Contato{
         $this->email = htmlspecialchars(strip_tags($this->email));
         
 
-        #encriptografar a senha 
-        $this->senha = md5($this->senha);
+    
 
         $stmt->bindParam(":t",$this->telefone);
         $stmt->bindParam(":e",$this->email);
