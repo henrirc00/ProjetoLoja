@@ -78,6 +78,7 @@ class Contato{
 
         $stmt->bindParam(":t",$this->telefone);
         $stmt->bindParam(":e",$this->email);
+        $stmt->bindParam(":i",$this->id);
 
         if($stmt->execute()){
             return true;
