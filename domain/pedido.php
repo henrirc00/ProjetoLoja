@@ -41,7 +41,7 @@ class Pedido{
     Função para cadastrar os pedidos no banco de dados 
     */
     public function cadastro(){
-        $query = "insert into pedido set id_produto=:p, quantidade=:q, alterado=:a ";
+        $query = "insert into pedido set id_cliente=:c";
 
         $stmt = $this->conexao->prepare($query);
 
@@ -54,15 +54,10 @@ class Pedido{
         */
 
         $this->id_cliente = htmlspecialchars(strip_tags($this->id_cliente));
-        $this->data_pedido = htmlspecialchars(strip_tags($this->data_pedido));
         
-        
-
-        
-
     
         $stmt->bindParam(":c",$this->id_cliente);
-        $stmt->bindParam(":d",$this->data_pedido);
+       
        
 
         
@@ -78,13 +73,12 @@ class Pedido{
 
     public function alterarpedido(){
 
-        $query = "update pedido set id_cliente=:c, data_pedido=:d where id=:i";
+        $query = "update pedido set id_cliente=:c where id=:i";
 
         $stmt= $this->conexao->prepare($query);
 
         $stmt->bindParam(":i",$this->id);
         $stmt->bindParam(":c",$this->id_cliente);
-        $stmt->bindParam(":d",$this->data_pedido);
      
 
 
