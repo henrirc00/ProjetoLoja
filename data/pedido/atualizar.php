@@ -44,7 +44,7 @@ if(!empty($data->id)
 
     if($pedido->alterarpedido()){
         header("HTTP/1.0 201");
-        echo json_encode(array("mensagem"=>"pedido atulizado com sucesso!"));
+        echo json_encode(array("mensagem"=>"pedido atualizado com sucesso!"));
     }
     else{
         header("HTTP/1.0 400");
