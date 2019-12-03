@@ -26,6 +26,12 @@ export class AppComponent {
       url: '/pedidos',
       icon: 'basket'
     },
+    
+    {
+      title: 'Politica',
+      url: '/politica',
+      icon: 'paper'
+    },
     {
       title: 'Sair',
       url: '/sair',
