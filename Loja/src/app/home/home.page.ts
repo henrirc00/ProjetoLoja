@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,10 +21,11 @@ export class HomePage {
   e irá repassar para o nosso laça (*ngFor) na home.  
   */ 
   public produtos:Array<Object>=[];
-  constructor(private http:HttpClient, private navCtrl:NavController) {}
+  constructor(private http:HttpClient, private router:Router) {}
 
   public navDetalheProduto(id:string) {
-    this.navCtrl.navigateForward("detalheproduto?id=+id");
+    console.log(id);
+    this.router.navigate(['detalheproduto',{idprod:id}]);
   }
 
 /*
