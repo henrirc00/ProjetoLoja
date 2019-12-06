@@ -54,6 +54,7 @@ para o uso do comandos de CRUD
 
 $produto = new Produto($db);
 
+$idproduto = $_GET["id"];
 $data = json_decode(file_get_contents("php://input"));
 
 /* 
@@ -61,9 +62,9 @@ A variavel stmt(Statement->sentença) foi criada para guardar o retorno
 da consulta que está na funcao listra. Dentro da funcao listar() temos 
 uma consulta no formato sql que selecionada todos os usuário("Select * from produto")  
 */
-$produto->id = $data->id;
+//$produto->id = $data->id;
 
-$stmt = $produto->pesquisar_id();
+$stmt = $produto->pesquisar_id($idproduto);
 /* 
 Se a consuta retorna uma quantidade de linhas maior que 0(Zero), então será
 construido um array com os dados dos produto.
