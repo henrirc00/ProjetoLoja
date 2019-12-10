@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-cadastrar',
@@ -7,7 +8,53 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastrarPage implements OnInit {
 
-  constructor() { }
+ public model:DadosCadastrar = null;
+
+  constructor() {
+
+ this.model = new DadosCadastrar(); 
+    
+  this.model.nome="";
+  this.model.cpf="";
+  this.model.usuario="";
+  this.model.senha="";
+  this.model.logradouro="";
+  this.model.numero="";
+  this.model.complemento="";
+  this.model.bairro="";
+  this.model.cep="";
+  this.model.telefone="";
+  this.model.email="";
+  this.model.foto="";
+  
+   }
+
+
+//criar a função efetuarcadastro
+public efetuarcadastro(){
+
+var headers = new HttpHeaders();
+headers.append("Access-Control-Allow-Origin","*");
+headers.append("Access-Control-Method","POST");
+headers.append("Accept","application/json");
+headers.append("Content-Type","application/json");
+
+var dados={
+  "usuario":this.model.usuario,
+  "senha":this.model.senha,
+  "foto":this.model.foto,
+  "telefone":this.model.telefone,
+  "email":this.model.email,
+  "logradouro":this.model.logradouro,
+  "numero":this.model.numero,
+  "complemento":this.model.complemento,
+  "bairro":this.model.bairro,
+  "cep":this.model.cep,
+  "nome":this.model.nome,
+  "cpf":this.model.cpf
+}
+}
+
 
   ngOnInit() {
   }
@@ -26,4 +73,5 @@ export class DadosCadastrar{
   cep:string;
   telefone:string;
   email:string;
+  foto:string;
 }
