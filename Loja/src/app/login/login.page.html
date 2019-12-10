@@ -1,9 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-item>
+        <ion-label position="floating">Usuário</ion-label>
+        <ion-input type="text" name="usuario" id="usuario"></ion-input>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">senha</ion-label>
+          <ion-input type="password" name="senha" id="senha" maxlength="10"></ion-input>
+          <ion-input></ion-input>
+        </ion-item>
+
+        <ion-label class="areaOu">
+       Ou
+      </ion-label>
+
+
+        <ion-label class="btnfacebook" (click)="logarfacebook()">
+        <ion-icon name="logo-facebook"></ion-icon>
+        Fazer login com facebook
+      </ion-label>
+
+      <ion-label class="btnfacebook" (click)="logarfacebook()">
+          <ion-icon name="logo-google"></ion-icon>
+          Fazer login com facebook
+        </ion-label>
+
+        <ion-label class="btnfacebook" (click)="recuperarsenha()">
+        <ion-icon name="refresh-circle"></ion-icon>
+        Recuperar Senha
+        </ion-label><br>
+
+        <ion-label class="btnfacebook" (click)="cadastrar()">
+            <ion-icon name="man"></ion-icon>
+            Cadastrar
+            </ion-label>
+    
+
+
 
 </ion-content>
