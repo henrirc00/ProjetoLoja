@@ -14,6 +14,9 @@ private url:string = "http://localhost/dbloja/data/usuario/login.php";
 public modelUs:Usuario;
 
   constructor(private router:Router, private http:HttpClient) {
+
+    this.modelUs = new Usuario();
+
     this.modelUs.usuario="";
     this.modelUs.senha="";
    }
@@ -35,13 +38,23 @@ public modelUs:Usuario;
 
     this.http.get(this.url,{headers:headers,params:dados}).subscribe(
       data=>{
-        console.log(data);
+       if(!data==null){
+         this.router.navigate(["/home"]);
+       }
+       else{
+          alert("Usuario ou senha incorretos")         
+       }
+
+
+
       },
       error=>{
+        alert("Usuário ou senha incorretos")
         console.log("Erro ao tentar logar"+error);
       }
     );
 
+   
  
   }
 
