@@ -36,13 +36,29 @@ public modelUs:Usuario;
     "senha":this.modelUs.senha
     };
 
+    //Buscando dados da api via get, (headers são os json)
     this.http.get(this.url,{headers:headers,params:dados}).subscribe(
       data=>{
 
+
+        //tratamento dos dados de qualquer jeito, forma generica
         var rs = (data as any);
         var n:string = rs.saida[0].nome;
 
+      //Se ele for diferente de vazio ele entra no nome 
        if(n!=""){
+         console.log(rs);
+      /*
+      Vamos pegar as informações que estão retornando da API deste usuário logado e 
+      adicionar ao banco de dados do IONIC.
+      Urilizaremos o comando window.localStorage.setItem("key","value");
+      O comando localStorage usa o banco de dados do ionic e consequentemente o banco
+      do telefone. Neste comando temos os seguintes métodos:
+      setItem -> quando se deseja gravar os dados no banco;
+      getItem -> quando se deseja resgatar os dados cadastrados no banco;
+      removeItem -> quando se deseja apagar os dados do banco de dados;
+      */
+        window.localStorage.setItem("dadosCliente",JSON.stringify(rs));
          this.router.navigate(["/home"]);
        }
 

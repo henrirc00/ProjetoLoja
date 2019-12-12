@@ -47,4 +47,12 @@ public produtos:Array<Object>=[];
 
   }
 
+  public exibirDados(){
+
+    var dados:any = window.localStorage.getItem("dadosCliente");
+    console.log("Estamos na página detalhes ->"+dados);
+
+
+  }
+
 }
