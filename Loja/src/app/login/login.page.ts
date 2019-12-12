@@ -38,9 +38,15 @@ public modelUs:Usuario;
 
     this.http.get(this.url,{headers:headers,params:dados}).subscribe(
       data=>{
-       if(!data==null){
+
+        var rs = (data as any);
+        var n:string = rs.saida[0].nome;
+
+       if(n!=""){
          this.router.navigate(["/home"]);
        }
+
+
        else{
           alert("Usuario ou senha incorretos")         
        }
